@@ -28,16 +28,14 @@
         const loader = new THREE.TextureLoader();
         loader.setCrossOrigin('anonymous');
         const geometry = new THREE.BoxGeometry(1,1,1);
-        const material = new THREE.MeshPhongMaterial({
-            map: [
-                    loader.load('./skybox/TropicalSunnyDay_nx.jpg'),
-                    loader.load('./skybox/TropicalSunnyDay_ny.jpg'),
-                    loader.load('./skybox/TropicalSunnyDay_nz.jpg'),
-                    loader.load('./skybox/TropicalSunnyDay_px.jpg'),
-                    loader.load('./skybox/TropicalSunnyDay_py.jpg'),
-                    loader.load('./skybox/TropicalSunnyDay_pz.jpg'),
-                ]
-        });
+        const material = [
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_nx.jpg')}),
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_ny.jpg')}),
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_nz.jpg')}),
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_px.jpg')}),
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_py.jpg')}),
+            new THREE.MeshPhongMaterial({map: loader.load('./skybox/TropicalSunnyDay_pz.jpg')})
+        ]
         const cube = new THREE.Mesh(geometry, material);
         cube.position.z = 0;
         scene.add(cube);
